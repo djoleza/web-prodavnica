@@ -24,15 +24,16 @@ class DatabaseSeeder extends Seeder
         Kategorija::truncate();
 
         User::create([
-                'name' => 'djole', 
-                'email' => 'djole@gmail.com', 
-               
-                'password' => Hash::make('djole')]);
+            'name' => 'djole', 
+            'email' => 'djole@gmail.com',                
+            'password' => Hash::make('djole')
+        ]);
         User::create([
-                    'name' => 'radovan', 
-                    'email' => 'radovan@gmail.com', 
-                   
-                    'password' => Hash::make('radovan')]);
+            'name' => 'radovan', 
+            'email' => 'radovan@gmail.com',                    
+            'password' => Hash::make('radovan'),
+            'admin'=>1
+        ]);
 
                 (new BrendSeeder())->run();
                 (new KategorijaSeeder())->run();
