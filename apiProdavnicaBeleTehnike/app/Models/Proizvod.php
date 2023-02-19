@@ -15,7 +15,7 @@ class Proizvod extends Model
         'slika_url',
         'kategorija_id',
         'brend_id',
-        'istaknut',
+ 
         'stanje_na_lageru',
     ];
 
