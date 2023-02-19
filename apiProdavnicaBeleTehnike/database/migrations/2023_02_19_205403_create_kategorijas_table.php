@@ -15,6 +15,9 @@ class CreateKategorijasTable extends Migration
     {
         Schema::create('kategorijas', function (Blueprint $table) {
             $table->id();
+            $table->string('naziv');
+            $table->text('opis')->nullable();
+            $table->string('slug')->unique();
             $table->timestamps();
         });
     }

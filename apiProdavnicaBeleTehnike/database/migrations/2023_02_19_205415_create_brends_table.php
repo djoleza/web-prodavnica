@@ -15,6 +15,10 @@ class CreateBrendsTable extends Migration
     {
         Schema::create('brends', function (Blueprint $table) {
             $table->id();
+            $table->string('naziv');
+            $table->text('opis')->nullable();
+            $table->string('logo_url')->nullable();
+            $table->string('slug')->unique();
             $table->timestamps();
         });
     }
