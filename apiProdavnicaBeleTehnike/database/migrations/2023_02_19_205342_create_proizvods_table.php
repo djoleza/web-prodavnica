@@ -18,10 +18,11 @@ class CreateProizvodsTable extends Migration
             $table->string('naziv');
             $table->text('opis')->nullable();
             $table->integer('cena');
-            $table->integer('kolicina');
+            $table->integer('stanje_na_lageru');
             $table->foreignId('kategorija_id');
             $table->foreignId('brend_id');
-            $table->string('slug')->unique();
+            $table->string('slika_url')->nullable();
+ 
             $table->timestamps();
         });
     }
