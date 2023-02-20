@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { BsCartFill } from "react-icons/bs";
+ 
 import axios from "axios";
 
-function Navbar({cartNum,token}) {
+function Navbar() {
   
   
     
@@ -11,11 +11,12 @@ function Navbar({cartNum,token}) {
   return (
     <div>
           <ul className='listaNavbar'>
-                <li className='elementListeNavbar'> <Link to="/">Pocetna</Link>  </li>
+                
 
-                {token == null ?   //ako nije ulogovan moze da se uloguje ili registruje
+                {window.sessionStorage.getItem("auth_token") == null ?   
             <> 
- 
+                <li className='elementListeNavbar'> <Link to="/">Pocetna</Link>  </li>
+                <li className='elementListeNavbar'> <Link to="/login">Uloguj se</Link>  </li>
                 
              
              
