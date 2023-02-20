@@ -1,7 +1,28 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
+
  
  
 function Pocetna({proizvodi}) {
+ 
+    const [exchangeRate, setExchangeRate] = useState(null);
 
+    useEffect(() => {
+      const fetchExchangeRate = async () => {
+        try {
+          const response = await axios.get(
+            "https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=RSD&to_currency=EUR&apikey=YOUR_API_KEY"
+          );
+          const data = response.data["Realtime Currency Exchange Rate"];
+          const exchangeRate = data["5. Exchange Rate"];
+          setExchangeRate(exchangeRate);
+        } catch (error) {
+          console.error(error);
+        }
+      };
+  
+      fetchExchangeRate();
+    }, []);
  
   return (
     <div className="container ">
@@ -22,6 +43,9 @@ function Pocetna({proizvodi}) {
                         <p className="card-category">{proizvod.kategorija.naziv}</p>
                       </div>
                       <p className="card-price">{proizvod.cena} RSD</p>
+ 
+                      <p className="card-price">{parseFloat(proizvod.cena*exchangeRate).toFixed(2)} EUR</p>
+
                     </div>
                   </div>
                 </div>
