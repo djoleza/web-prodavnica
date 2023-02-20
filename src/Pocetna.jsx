@@ -6,15 +6,29 @@ function Pocetna({proizvodi}) {
   return (
     <div className="container ">
             {proizvodi.map((proizvod)=>
-                <div className="card" key={proizvod.id}>
-                <img src={proizvod.slika_url} alt={proizvod.naziv} />
-                <h2>{proizvod.naziv}</h2>
-                <h3>Cena: {proizvod.cena} RSD</h3>
-                <p>{proizvod.opis}</p>
-                <p>Kategorija: {proizvod.kategorija.naziv}</p>
-                <p>Brend: {proizvod.brend.naziv}</p>
-                <p>Stanje na lageru: {proizvod.stanje_na_lageru}</p>
+                <div class="card-container">
+                <div class="card">
+                  <div class="card-image">
+                    <img src={proizvod.slika_url} alt="Beko RCNA406K20P"/>
+                  </div>
+                  <div class="card-content">
+                    <div class="card-header">
+                      <h2 class="card-title">{proizvod.naziv}</h2>
+                      <p class="card-subtitle">{proizvod.opis}</p>
+                    </div>
+                    <div class="card-footer">
+                      <div class="card-meta">
+                        <p class="card-brand">{proizvod.brend.naziv}</p>
+                        <p class="card-category">{proizvod.kategorija.naziv}</p>
+                      </div>
+                      <p class="card-price">{proizvod.cena} RSD</p>
+                    </div>
+                  </div>
+                </div>
               </div>
+
+
+              
             )}
     
     </div>
