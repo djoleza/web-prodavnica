@@ -66,9 +66,28 @@ function Admin({proizvodi,setPAzuriraj}) {
           }
         }
       }
+      const [sortedData, setSortedData] = useState(proizvodi);
+      const [sort,setSort]=useState(true)
+      const sortByPrice = () => {
+        if(sort==true){
+            const sorted = [...sortedData].sort((a, b) => {
+                return a.cena - b.cena;
+              });
+             setSortedData(sorted);
+
+        }else{
+            const sorted = [...sortedData].sort((a, b) => {
+                return b.cena - a.cena;
+              });
+            setSortedData(sorted);
+
+        }
+        
+        setSort(!sort);
+      }
     return (
       <div className="containerTabela ">    
- 
+                <button className="btn btn-success" onClick={sortByPrice}>Sortiraj</button>
                 <input type="text" id="searchInput" onInput={searchTable} />
             <table>
             <thead>
@@ -85,7 +104,7 @@ function Admin({proizvodi,setPAzuriraj}) {
                 </tr>
             </thead>
             <tbody id="myTable">
-                {proizvodi.map((product) => (
+                {sortedData.map((product) => (
                 <tr key={product.id}>
                     <td>{product.id}</td>
                     <td>{product.naziv}</td>
