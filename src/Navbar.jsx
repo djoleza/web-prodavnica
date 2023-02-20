@@ -67,9 +67,10 @@ function Navbar({token,setToken}) {
              :  //ako jeste ulologovan treba da vidimo da li je admin ili nije admin
              <>  
             
-                {window.sessionStorage.getItem("auth_name")=='Admin'  ? 
+                {window.sessionStorage.getItem("auth_role")=='admin'  ? 
  
                     <> 
+                  <li className='elementListeNavbar'> <Link to="/dodaj">Dodaj</Link>  </li>
                             
  
 

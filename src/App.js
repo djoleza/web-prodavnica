@@ -7,6 +7,7 @@ import Pocetna from './Pocetna';
 import Navbar from './Navbar';
 import Login from './Login';
 import Admin from './Admin';
+import Dodaj from './Dodaj';
 
 const axiosInstance = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
@@ -42,6 +43,7 @@ function App() {
               <Route path="/admin" element={ <Admin proizvodi={proizvodi}></Admin>}></Route>
 
               <Route path="/login" element={ <Login addToken={setToken}></Login>}></Route>
+              <Route path="/dodaj" element={ <Dodaj  ></Dodaj>}></Route>
   
           </Routes>
            
