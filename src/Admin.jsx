@@ -1,10 +1,15 @@
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
  
  
-function Admin({proizvodi}) {
+function Admin({proizvodi,setPAzuriraj}) {
+    const navigate = useNavigate();
+
     function azuriraj(p){
+        setPAzuriraj(p)
+        navigate('/azuriraj');
 
     }
     function obrisi(id){
