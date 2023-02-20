@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import Pocetna from './Pocetna';
 import Navbar from './Navbar';
 import Login from './Login';
+import Admin from './Admin';
 
 const axiosInstance = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
@@ -37,6 +38,9 @@ function App() {
           <Routes>
 
               <Route path="/" element={ <Pocetna proizvodi={proizvodi}></Pocetna>}></Route>
+
+              <Route path="/admin" element={ <Admin proizvodi={proizvodi}></Admin>}></Route>
+
               <Route path="/login" element={ <Login addToken={setToken}></Login>}></Route>
   
           </Routes>
