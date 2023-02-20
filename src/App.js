@@ -1,23 +1,45 @@
-import logo from './logo.svg';
+ 
 import './App.css';
+import axios from "axios";
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import Pocetna from './Pocetna';
 
+const axiosInstance = axios.create({
+  baseURL: process.env.REACT_APP_API_URL,
+});
 function App() {
+
+
+  const [proizvodi,setProizvodi] = useState([ ]);
+  useEffect(() => {
+    const getRandomLists = async () => {
+      try {
+        const res = await axiosInstance.get( "http://127.0.0.1:8000/api/proizvodi",
+ 
+        );
+        setProizvodi(res.data.data);
+        console.log(res.data.data)
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getRandomLists();
+  }, [ axiosInstance]);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <BrowserRouter className="App">
+        
+          <Routes>
+
+              <Route path="/" element={ <Pocetna proizvodi={proizvodi}></Pocetna>}></Route>
+  
+          </Routes>
+           
+          
+ 
+       </BrowserRouter>
+    
     </div>
   );
 }
