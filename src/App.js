@@ -33,7 +33,7 @@ function App() {
   return (
     <div className="App">
         <BrowserRouter className="App">
-          <Navbar token={token}></Navbar>
+          <Navbar token={token} setToken={setToken}></Navbar>
           <Routes>
 
               <Route path="/" element={ <Pocetna proizvodi={proizvodi}></Pocetna>}></Route>

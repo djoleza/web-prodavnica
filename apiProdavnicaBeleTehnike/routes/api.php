@@ -45,5 +45,5 @@ Route::middleware(['auth:sanctum','isAPIAdmin'])->group(function(){
     Route::put("/proizvodi/{id}",[ProizvodController::class,'update']);
     Route::delete("/proizvodi/{id}",[ProizvodController::class,'destroy']);
     
-    Route::post('logout', [AuthController::class, 'logout']);  
+ 
 });
