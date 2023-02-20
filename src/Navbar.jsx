@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
  
 import axios from "axios";
 
-function Navbar() {
+function Navbar({token}) {
   
   
     
@@ -13,7 +13,7 @@ function Navbar() {
           <ul className='listaNavbar'>
                 
 
-                {window.sessionStorage.getItem("auth_token") == null ?   
+                {token == null ?   
             <> 
                 <li className='elementListeNavbar'> <Link to="/">Pocetna</Link>  </li>
                 <li className='elementListeNavbar'> <Link to="/login">Uloguj se</Link>  </li>
